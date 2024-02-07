@@ -1,19 +1,19 @@
 ---
 # tasks file for roles/database
-- name: Arrêter le container Docker 'postgres' s'il existe
-  command: docker stop postgres
+- name: "Arrêter le container Docker '{{ app_name }}' s'il existe"
+  command: docker stop {{ app_name }}
   ignore_errors: true
 
-- name: Supprimer le container Docker 'postgres' s'il existe
-  command: docker rm postgres
+- name: "Supprimer le container Docker '{{ app_name }}' s'il existe"
+  command: docker rm {{ app_name }}
   ignore_errors: true
 
 - name: Tirer l'image Docker depuis Docker Hub
   command: docker pull "{{ docker_image }}"
 
-- name: Lancer le container Docker 'postgres'
-  command: docker run -d -p {{ port_expose }} --network {{ network }} --name postgres "{{ docker_image }}"
+- name: "Lancer le container Docker '{{ app_name }}'"
+  command: docker run -d -p {{ port_expose }} --network {{ network }} --name {{ app_name }} "{{ docker_image }}"
 
 - name: Afficher le message de confirmation
   debug:
-    msg: "postgres is running ..."
+    msg: "{{ app_name }} is running ..."
