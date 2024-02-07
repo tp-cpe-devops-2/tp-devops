@@ -1,2 +1,5 @@
 ---
 # vars file for roles/proxy
+docker_image: reachip/devops-httpd:1.0.0
+port_expose: 80:80
+network: app-network

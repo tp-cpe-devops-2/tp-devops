@@ -45,8 +45,4 @@
     username: reachip
     password: Gj6uU96cY5v
 
-- name: "Create a network"
-  docker_network:
-    name: "{{ docker_network }}"
-
 
