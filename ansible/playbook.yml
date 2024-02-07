@@ -14,4 +14,5 @@
     - network
     - database
     - app
+    - frontend
     - proxy

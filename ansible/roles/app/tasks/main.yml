@@ -1,18 +1,26 @@
 ---
 # tasks file for roles/app
-- name: "Arrêter le container Docker '{{ app_name }}' s'il existe"
-  command: "docker stop {{ app_name }}"
+
+- name: Arrêter et supprimer le container Docker '{{ app_name }}' s'il existe
+  docker_container:
+    name: "{{ app_name }}"
+    state: absent
   ignore_errors: true
 
-- name: "Supprimer le container Docker '{{ app_name }}' s'il existe"
-  command: "docker rm {{ app_name }}"
-  ignore_errors: true
-
-- name: Tirer l'image Docker depuis Docker Hub
-  command: docker pull "{{ docker_image }}"
-
-- name: Lancer le container Docker '{{ app_name }}'
-  command: docker run -d -p {{ port_expose }} --network {{ network }} --name {{ app_name }} "{{ docker_image }}"
+- name: Tirer et lancer le container Docker '{{ app_name }}'
+  docker_container:
+    name: "{{ app_name }}"
+    image: "{{ docker_image }}"
+    state: started
+    recreate: true
+    pull: true
+    network_mode: "{{ network }}"
+    published_ports:
+      - "{{ port_expose }}"
+    env:
+      POSTGRES_PASSWORD: "pwd"
+      POSTGRES_USER: "usr"
+      POSTGRES_DB: "db"
 
 - name: Afficher le message de confirmation
   debug:
