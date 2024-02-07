@@ -42,7 +42,7 @@
 
 - name: Se connecter à DockerHub
   docker_login:
-    username: reachip
-    password: Gj6uU96cY5v
+    username: "{{ docker_hub_username }}"
+    password: "{{ docker_hub_password }}"
 
 
