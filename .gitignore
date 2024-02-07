@@ -2,4 +2,4 @@
 path.txt
 .idea/
 .DS_STORE
-ansible/ansible.tp.key
+ansible/.ansible_key
