@@ -67,3 +67,4 @@ jobs:
           key: ${{secrets.SSH_PRIVATE_KEY}}
           options: |
             --inventory inventories/setup.yml
+            --vault-password-file ${{secrets.VAULT_PASSWORD}}
