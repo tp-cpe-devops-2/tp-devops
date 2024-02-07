@@ -2,9 +2,10 @@ all:
   vars:
     ansible_user: centos
     ansible_ssh_private_key_file: ansible.tp.key
-    postgres_password: '{{ lookup("env", "POSTGRES_PASSWORD") }}'
-    postgres_user: '{{ lookup("env", "POSTGRES_USER") }}'
-    postgres_db: '{{ lookup("env", "POSTGRES_DB") }}'
+    postgres_password: pwd
+    postgres_user: usr
+    postgres_db: db
+    network: app-network
   children:
     prod:
       hosts: centos@rached.mejri.takima.cloud
