@@ -1,2 +1,19 @@
 ---
 # tasks file for roles/app
+- name: Arrêter le container Docker 'backend' s'il existe
+  command: docker stop backend
+  ignore_errors: true
+
+- name: Supprimer le container Docker 'backend' s'il existe
+  command: docker rm backend
+  ignore_errors: true
+
+- name: Tirer l'image Docker depuis Docker Hub
+  command: docker pull "{{ docker_image }}"
+
+- name: Lancer le container Docker 'backend'
+  command: docker run -d -p {{ port_expose }} --network {{ network }} --name backend "{{ docker_image }}"
+
+- name: Afficher le message de confirmation
+  debug:
+    msg: "Backend is running ..."

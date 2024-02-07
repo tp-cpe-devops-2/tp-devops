@@ -35,3 +35,18 @@
   service: name=docker state=started
   tags: docker
 
+- name: Vérifier si déjà connecté à Docker
+  command: docker info
+  register: docker_info
+  ignore_errors: true
+
+- name: Se connecter à DockerHub
+  docker_login:
+    username: reachip
+    password: Gj6uU96cY5v
+
+- name: "Create a network"
+  docker_network:
+    name: "{{ docker_network }}"
+
+
