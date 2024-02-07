@@ -3,4 +3,3 @@
 app_name: backend
 docker_image: reachip/devops-backend:1.0.0
 port_expose: 8080:8080 
-network: app-network

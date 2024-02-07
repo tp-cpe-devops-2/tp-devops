@@ -1,23 +1,17 @@
-- name: Install Docker
+---
+- name: Configurer et lancer des services via Docker
   hosts: all
-  become: yes
+  become: true
+  vars_files:
+    - vars/shared_vars.yml
+
+  tasks:
+    - name: Tâches globales avant les rôles
+      debug:
+        msg: "Exécution de tâches globales"
   roles:
     - docker
-
-- name: Launch database
-  hosts: all
-  become: yes
-  roles:
+    - network
     - database
-
-- name: Launch backend app
-  hosts: all
-  become: yes
-  roles:
     - app
-
-- name: Launch proxy
-  hosts: all
-  become: yes
-  roles:
     - proxy

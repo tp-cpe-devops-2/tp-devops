@@ -3,4 +3,3 @@
 app_name: httpd
 docker_image: "reachip/devops-{{app_name}}:1.0.0"
 port_expose: 80:80
-network: app-network
