@@ -18,7 +18,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: health,info,env,metrics,beans,configprops
+        include: health,info,env,metrics,beans,configprops,prometheus
         
 server:
   port: 80
