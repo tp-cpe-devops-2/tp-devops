@@ -1,0 +1,5 @@
+---
+# vars file for roles/grafana
+app_name: grafana
+docker_image: reachip/devops-grafana:1.0.0
+port_expose: 3000:3000

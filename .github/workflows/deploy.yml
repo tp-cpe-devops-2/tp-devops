@@ -59,6 +59,13 @@ jobs:
           tags: ${{secrets.DOCKERHUB_USERNAME}}/devops-prometheus:1.0.0
           push: true
 
+      - name: Build image and push grafana
+        uses: docker/build-push-action@v3
+        with:
+          context: ./grafana
+          tags: ${{secrets.DOCKERHUB_USERNAME}}/devops-grafana:1.0.0
+          push: true
+
       - name: Run playbook
         uses: dawidd6/action-ansible-playbook@v2
         with:
