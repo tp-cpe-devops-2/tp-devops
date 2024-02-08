@@ -8,6 +8,8 @@
     recreate: true
     pull: true
     network_mode: "{{ network }}"
+    published_ports:
+      - "{{ port_expose }}"
     env:
       POSTGRES_PASSWORD: "pwd"
       POSTGRES_USER: "usr"

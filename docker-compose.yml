@@ -8,6 +8,8 @@ services:
       - POSTGRES_PASSWORD=pwd
     image: reachip/devops-backend:1.0.0
     container_name: backend
+    ports:
+      - "80:80"
     networks:
       - app-network
     depends_on:
