@@ -1,0 +1,5 @@
+---
+# vars file for roles/frontend
+app_name: prometheus
+docker_image: reachip/devops-prometheus:1.0.0
+port_expose: 7070:9090
