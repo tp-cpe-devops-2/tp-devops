@@ -14,3 +14,4 @@
     - frontend
     - proxy
     - prometheus
+    - grafana
