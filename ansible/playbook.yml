@@ -13,3 +13,4 @@
     - app
     - frontend
     - proxy
+    - prometheus
