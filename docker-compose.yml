@@ -6,10 +6,11 @@ services:
       - POSTGRES_DB=db
       - POSTGRES_USER=usr
       - POSTGRES_PASSWORD=pwd
+      - POSTGRES_HOSTNAME=postgres
     image: reachip/devops-backend:1.0.0
     container_name: backend
     ports:
-      - "80:80"
+      - "8080:80"
     networks:
       - app-network
     depends_on:

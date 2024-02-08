@@ -13,12 +13,18 @@ spring:
     password: ${POSTGRES_PASSWORD}
     driver-class-name: org.postgresql.Driver
 management:
-  server:
-    add-application-context-header: false
   endpoints:
     web:
       exposure:
-        include: health,info,env,metrics,beans,configprops,prometheus
+        include: "health,info,prometheus"
+  endpoint:
+    metrics:
+      enabled: true
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+
         
 server:
   port: 80
